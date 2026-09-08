@@ -5,5 +5,5 @@ copy tmux conf ke satu atas diatas directory saat ini:
 cp .tmux.conf ../
 
 prerequisites
-ripgrep
+ripgrep (rg --version)
 nodejs: prettierd
