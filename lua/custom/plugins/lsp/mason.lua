@@ -88,9 +88,9 @@ return {
 				"prettier",
 				"eslint_d",
 				"stylua",
-				"isort",
-				"black",
-				"pylint",
+				-- "isort",
+				-- "black",
+				-- "pylint",
 			},
 		},
 		dependencies = {
