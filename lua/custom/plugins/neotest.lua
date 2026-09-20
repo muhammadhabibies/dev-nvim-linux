@@ -7,7 +7,6 @@ return {
 		"V13Axel/neotest-pest",
 		"marilari88/neotest-vitest",
 		"nvim-neotest/neotest-jest",
-		"olimorris/neotest-phpunit",
 	},
 	keys = {
 		-- { "<leader>tr", "<cmd>Neotest run<cr>" },
@@ -34,14 +33,9 @@ return {
 	config = function()
 		require("neotest").setup({
 			adapters = {
-				require("neotest-pest")({
-					pest_cmd = function()
-						return "vendor/bin/pest"
-					end,
-				}),
+				require("neotest-pest"),
 				require("neotest-vitest"),
 				require("neotest-jest"),
-				require("neotest-phpunit"),
 			},
 		})
 	end,
