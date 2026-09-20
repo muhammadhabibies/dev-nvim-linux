@@ -10,17 +10,37 @@ return {
 		"olimorris/neotest-phpunit",
 	},
 	keys = {
-		{ "<leader>tr", "<cmd>Neotest run<cr>" },
-		{ "<leader>to", "<cmd>Neotest output<cr>" },
-		{ "<leader>ts", "<cmd>Neotest summary<cr>" },
-		{ "<leader>ta", "<cmd>lua require('neotest').run.run({ suite = true })<cr>" },
+		-- { "<leader>tr", "<cmd>Neotest run<cr>" },
+		-- { "<leader>to", "<cmd>Neotest output<cr>" },
+		-- { "<leader>ts", "<cmd>Neotest summary<cr>" },
+		-- { "<leader>ta", "<cmd>lua require('neotest').run.run({ suite = true })<cr>" },
+		{
+			"<leader>tr",
+			function()
+				require("neotest").run.run()
+			end,
+			desc = "Run nearest test",
+		},
+		{ "<leader>to", "<cmd>Neotest output<cr>", desc = "Test output" },
+		{ "<leader>ts", "<cmd>Neotest summary<cr>", desc = "Test summary" },
+		{
+			"<leader>ta",
+			function()
+				require("neotest").run.run({ suite = true })
+			end,
+			desc = "Run test suite",
+		},
 	},
 	config = function()
 		require("neotest").setup({
 			adapters = {
-				require("neotest-pest"),
+				require("neotest-pest")({
+					pest_cmd = function()
+						return "vendor/bin/pest"
+					end,
+				}),
 				require("neotest-vitest"),
-				require("nvim-neotest/neotest-jest"),
+				require("neotest-jest"),
 				require("neotest-phpunit"),
 			},
 		})
