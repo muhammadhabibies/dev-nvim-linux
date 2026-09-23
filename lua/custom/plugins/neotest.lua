@@ -20,6 +20,13 @@ return {
 			end,
 			desc = "Run nearest test",
 		},
+		{
+			"<leader>tf",
+			function()
+				require("neotest").run.run(vim.fn.expand("%"))
+			end,
+			desc = "Run the current file",
+		},
 		{ "<leader>to", "<cmd>Neotest output<cr>", desc = "Test output" },
 		{ "<leader>ts", "<cmd>Neotest summary<cr>", desc = "Test summary" },
 		{
