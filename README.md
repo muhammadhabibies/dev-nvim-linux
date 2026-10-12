@@ -5,6 +5,7 @@ copy tmux conf ke home:
 cp -i .tmux.conf ~
 cp .tmux.conf ~
 cp -f .tmux.conf ~
+terus: tmux source-file ~/.tmux.conf
 
 prerequisites
 ripgrep (rg --version)
